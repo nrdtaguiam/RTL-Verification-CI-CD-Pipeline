@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer Save File
+[*]
+[dumpfile] "waveform.vcd"
+[savefile] "session.gtkw"
+[timestart] 0
+[size] 1100 700
+[pos] -1 -1
+*-7.000000 134 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] alu.
+@28
+alu.clk
+alu.rst_n
+alu.en
+@22
+alu.opcode[3:0]
+alu.a[7:0]
+alu.b[7:0]
+alu.result[7:0]
+@28
+alu.carry_out
+alu.zero
+alu.overflow
+alu.negative
+[pattern_trace] 1
+[pattern_trace] 0

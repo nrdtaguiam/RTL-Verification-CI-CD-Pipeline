@@ -1,6 +1,6 @@
 # RTL Verification Pipeline Walkthrough
 
-We have successfully built and verified the automated, cross-environment RTL verification pipeline. The environment enables running Python-based `cocotb` tests against an Icarus Verilog design inside WSL from a Windows host command line, automatically printing a beautiful summary, and natively launching Windows GTKWave to view waveforms.
+Successfully built and verified the automated, cross-environment RTL verification pipeline. The environment enables running Python-based `cocotb` tests against an Icarus Verilog design inside WSL from a Windows host command line, automatically printing a beautiful summary, and natively launching Windows GTKWave to view waveforms.
 
 ## Scaffolding & Directory Structure
 
@@ -25,9 +25,9 @@ Additionally, the CI/CD pipeline has been created in:
 
 ## 1. Verilog Design & cocotb Testbench
 
-The ALU in [design.v](file:///C:/Users/NEAL/VLSI_PORTFOLIO/src/rtl_verification/design.v) is fully parameterized and clocked. It implements 12 distinct operations (arithmetic, logical, shifts, and signed comparisons) and registers its outputs (`result`, `carry_out`, `zero`, `overflow`, `negative`).
+The ALU in [design.v] is fully parameterized and clocked. It implements 12 distinct operations (arithmetic, logical, shifts, and signed comparisons) and registers its outputs (`result`, `carry_out`, `zero`, `overflow`, `negative`).
 
-The cocotb testbench in [test_design.py](file:///C:/Users/NEAL/VLSI_PORTFOLIO/src/rtl_verification/test_design.py) contains 7 verification tasks:
+The cocotb testbench in [test_design.py] contains 7 verification tasks:
 1. `test_reset_state`: Asserts reset and verifies outputs go to 0.
 2. `test_enable_gate`: Verifies outputs hold state when `en` is low.
 3. `test_arithmetic_ops`: Validates addition, subtraction, carry, and signed overflows.
@@ -43,7 +43,7 @@ The cocotb testbench in [test_design.py](file:///C:/Users/NEAL/VLSI_PORTFOLIO/sr
 
 ## 2. Windows/WSL Cross-Environment Runner
 
-The orchestrator in [run_sim.py](file:///C:/Users/NEAL/VLSI_PORTFOLIO/src/rtl_verification/run_sim.py) dynamically detects the platform:
+The orchestrator in [run_sim.py] dynamically detects the platform:
 - **On Windows**: It converts the current Windows folder path to a WSL mount (e.g. `/mnt/c/...`), finds the Python virtual environment under `/mnt/c/Users/NEAL/VLSI_PORTFOLIO/rtl_project/.venv`, activates it, and executes `make` inside WSL.
 - **On Linux (CI)**: It runs `make` natively in the local terminal.
 
@@ -88,7 +88,7 @@ This automatically opens the waveform viewer with the clock, operands, result, a
 
 ## 4. GitHub Actions CI/CD Pipeline
 
-The [.github/workflows/rtl_ci.yml](file:///C:/Users/NEAL/VLSI_PORTFOLIO/.github/workflows/rtl_ci.yml) workflow:
+The workflow:
 - Spins up an Ubuntu runner.
 - Installs `iverilog` and `make`.
 - Sets up Python and pip-installs `cocotb`, `cocotb-bus`, and `pytest`.
